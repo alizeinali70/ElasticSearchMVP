@@ -21,3 +21,6 @@ Quick how-to (local)
     Open http://localhost:4200
 
     Type a query (e.g., “keyboard”); you’ll get ES results.
+
+******
+Database Name: SearchMvp
