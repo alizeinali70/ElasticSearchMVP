@@ -1,0 +1,26 @@
+<div class="page">
+  <h1>Product Search (Elasticsearch MVP)</h1>
+
+  <div class="controls">
+    <input [value]="q()" (input)="q.set($any($event.target).value)" placeholder="Search..." />
+    <button (click)="onSearch()">Search</button>
+    <!-- <button (click)="onReindex()">Reindex</button> -->
+  </div>
+
+  <p *ngIf="loading$ | async">Loading...</p>
+
+  <h3>Results</h3>
+  <ul>
+    <li *ngFor="let p of results$ | async">
+      <strong>{{ p.name }}</strong> ({{ p.sku }}) — {{ p.price | currency }}
+      <div *ngIf="p.description">{{ p.description }}</div>
+    </li>
+  </ul>
+
+  <h3>All Products</h3>
+  <ul>
+    <li *ngFor="let p of all$ | async">
+      <strong>{{ p.id }} — {{ p.name }}</strong> ({{ p.description }})
+    </li>
+  </ul>
+</div>

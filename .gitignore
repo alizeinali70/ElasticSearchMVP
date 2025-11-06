@@ -1,0 +1,38 @@
+# ---- Visual Studio / .NET ----
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+TestResult*/
+*.nupkg
+project.lock.json
+.nuget/
+**/*.rsuser
+**/*.cache
+**/*.ide
+
+# If using Rider/Resharper
+.idea/
+
+# ---- Node/Frontend ----
+node_modules/
+dist/
+.build/
+.cache/
+.next/
+out/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+pnpm-lock.yaml
+# keep lockfile if you prefer; remove the line above in that case
+
+# ---- OS / Misc ----
+.DS_Store
+Thumbs.db
