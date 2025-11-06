@@ -37,7 +37,8 @@ public class ProductsController : ControllerBase
         if (string.IsNullOrWhiteSpace(q))
             return BadRequest("Query text is required.");
 
-        var results = await _search.SearchAsync(q, Math.Clamp(size, 1, 100), ct);
+        //var results = await _search.SearchAsync(q, Math.Clamp(size, 1, 100), ct);
+        var results = await _search.SearchAsync(q, size, ct);
 
         return Ok(results);
     }

@@ -1,6 +1,12 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 .page {
-  max-width: 900px;
-  margin: 2rem auto;
+  max-width: 1024px;
+  margin: auto auto;
   font-family: system-ui, sans-serif;
 }
 .controls {
@@ -25,11 +31,50 @@ button {
 button:hover {
   background: #1258a0;
 }
+.page {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Two-column layout */
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  flex: 1; /* fills remaining space */
+  overflow: hidden; /* prevent global scroll */
+  margin-top: 1rem;
+}
+
+.results-column {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Make "All Products" scrollable */
+.scrollable {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+/* Optional: style tweaks */
+.results-column h3 {
+  margin-top: 0;
+}
+
 ul {
   list-style: none;
-  padding: 0;
+  padding-left: 0;
+  margin: 0;
 }
+
 li {
-  padding: 0.4rem 0;
-  border-bottom: 1px solid #eee;
+  margin-bottom: 0.5rem;
 }

@@ -4,23 +4,30 @@
   <div class="controls">
     <input [value]="q()" (input)="q.set($any($event.target).value)" placeholder="Search..." />
     <button (click)="onSearch()">Search</button>
-    <!-- <button (click)="onReindex()">Reindex</button> -->
   </div>
 
   <p *ngIf="loading$ | async">Loading...</p>
 
-  <h3>Results</h3>
-  <ul>
-    <li *ngFor="let p of results$ | async">
-      <strong>{{ p.name }}</strong> ({{ p.sku }}) — {{ p.price | currency }}
-      <div *ngIf="p.description">{{ p.description }}</div>
-    </li>
-  </ul>
+  <!-- Two-column layout -->
+  <div class="results-grid">
+    <div class="results-column scrollable">
+      <h3>Results</h3>
+      <ul>
+        <li *ngFor="let p of results$ | async">
+          <strong>{{ p.id }}—{{ p.name }}</strong> ({{ p.sku }}) — {{ p.price | currency }}
+          <div *ngIf="p.description">{{ p.description }}</div>
+        </li>
+      </ul>
+    </div>
 
-  <h3>All Products</h3>
-  <ul>
-    <li *ngFor="let p of all$ | async">
-      <strong>{{ p.id }} — {{ p.name }}</strong> ({{ p.description }})
-    </li>
-  </ul>
+    <div class="results-column scrollable">
+      <h3>All Products</h3>
+      <ul>
+        <li *ngFor="let p of all$ | async">
+          <strong>{{ p.id }}—{{ p.name }}</strong
+          >({{ p.sku }})
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

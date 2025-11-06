@@ -28,11 +28,11 @@ public sealed class ElasticsearchProductSearch(
         var create = await _client.Indices.CreateAsync(IndexName, d => d
             .Mappings(m => m
                 .Properties<EsProduct>(ps => ps
-                    .Text(p => p.Name, t => { })
-                    .Text(p => p.Description, t => { })
+                    .Text(p => p.Name)
+                    .Text(p => p.Description)
                     .Keyword(p => p.Sku)
-                    .DoubleNumber(p => p.Price, n => { })
-                    .IntegerNumber(p => p.Id, n => { })
+                    .DoubleNumber(p => p.Price)
+                    .IntegerNumber(p => p.Id)
                 )
             ), ct);
 
@@ -41,7 +41,7 @@ public sealed class ElasticsearchProductSearch(
         {
             Console.WriteLine($"Index creation failed: {create.DebugInformation}");
 
-            // throw new Exception($"Failed to create index: {create.ElasticsearchServerError?.Error.Reason}");
+            throw new Exception($"Failed to create index: {create.ElasticsearchServerError?.Error.Reason}");
         }
     }
 
